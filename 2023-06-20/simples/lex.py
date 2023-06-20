@@ -1,6 +1,7 @@
 import enum
 import sys
 
+## lexer = analise lexica, pega o token pro parser
 class Lexer:
     def __init__(self, source):
         self.source = source + '\n'

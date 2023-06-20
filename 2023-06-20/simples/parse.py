@@ -1,6 +1,8 @@
 import sys
 from lex import *
 
+## parser = analise sintatica, pede o proximo token pro lexer
+
 class Parser: 
     def __init__(self, lexer):
         self.lexer = lexer
@@ -33,6 +35,27 @@ class Parser:
         sys.exit("Erro sintático: "+msg)
 
     def parse(self):
-        pass
+        self.S() # começa o parser a partir do simbolo generalizado => top down approach
 
-    
+    def S(self):
+        self.match(TipoToken.a)
+        self.A()
+        self.B()
+        self.match(TipoToken.e)
+
+    def A(self):
+        self.match(TipoToken.b)
+        self.K()
+
+    def K(self):
+        # pode tanto ser bcK quanto vazio!
+
+        if self.checkToken(TipoToken.b): #note que está incompleto desse jeito
+            self.match(TipoToken.b)
+            self.match(TipoToken.c)
+            self.K()
+        else: 
+            pass
+
+    def B(self):
+        self.match(TipoToken.d)

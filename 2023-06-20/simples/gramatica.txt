@@ -1,0 +1,6 @@
+S -> aABe
+A -> bK
+K -> bcK | vazio
+B -> d
+
+maiusculas sao nossos simbolos nao terminais, enquanto as minusculas sao terminais 
